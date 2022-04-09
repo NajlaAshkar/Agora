@@ -1,8 +1,8 @@
 import psycopg2
+import Users
+import Products
+import Mapping
 
-import sys
-import boto3
-import os
 
 ENDPOINT = "agoradb.cqg31s3ekxny.us-east-1.rds.amazonaws.com"
 PORT = "5432"
@@ -11,36 +11,14 @@ REGION = "us-east-1f"
 DBNAME = "postgres"
 PASSWORD = "236371Aa!"
 
-# gets the credentials from .aws/credentials
-session = boto3.Session(profile_name='RDSCreds')
-client = session.client('rds')
-token = client.generate_db_auth_token(DBHostname=ENDPOINT, Port=PORT, DBUsername=USER, Region=REGION)
-
 try:
-    # conn = psycopg2.connect(host=ENDPOINT, port=PORT, database=DBNAME, user=USER, password=token)
     conn = psycopg2.connect(host=ENDPOINT, port=PORT, database=DBNAME, user=USER, password=PASSWORD)
     cur = conn.cursor()
     cur.execute("""SELECT now()""")
     query_results = cur.fetchall()
     print(query_results)
 
-    # pengine = sa.create_engine('postgresql+psycopg2://postgres:' + PASSWORD + '@' + ENDPOINT + '/' + DBNAME)
-    # # define declarative base
-    # Base = declarative_base()
-    # # reflect current database engine to metadata
-    # metadata = sa.MetaData(pengine)
-    # metadata.reflect()
-
-
-
-    # call the session maker factory
-    # Session = sa.orm.sessionmaker(pengine)
-    # session = Session()
-
-    import Users
-    import Products
-    import Mapping
-    #print(Users.session.query(Users.User).filter(Users.User.PhoneNum == "0526866526").first().Name)
+    print(Users.session.query(Users.User).filter(Users.User.PhoneNum == "0526866526").first().Name)
 
 
 except Exception as e:
