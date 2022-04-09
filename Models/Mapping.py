@@ -12,28 +12,24 @@ metadata = sa.MetaData(pengine)
 metadata.reflect()
 
 
-class User(Base):
-    __table__ = sa.Table("User", metadata)
+class Mapping(Base):
+
+    __table__ = sa.Table("Mapping", metadata)
 
     @staticmethod
-    def add_user(phone, name, email):
-        pass
-
-    def authenticate(self):
-        pass
-
-    def logout(self):
+    def get_region(city):
         pass
 
     @staticmethod
-    def get_user_by_phone(phone):
+    def get_cities_in_the_same_region(region):
         pass
 
+    @staticmethod
+    def get_all_regions():
+        pass
 
-Session = sa.orm.sessionmaker(pengine)
-session = Session()
-
-
-
+    @staticmethod
+    def get_cities():
+        pass
 
 
