@@ -18,6 +18,10 @@ class Mapping(Base):
 
     __table__ = sa.Table("Mapping", metadata)
 
+    def __init__(self, city, region):
+        self.City = city
+        self.Region = region
+
     @staticmethod
     def get_region(city):
         return session.query(Mapping).filter(Mapping.City == city).first().Region
@@ -46,7 +50,7 @@ class Mapping(Base):
 
 #print(Mapping.get_regions())
 #print(Mapping.get_cities())
-#print(Mapping.get_region("GIZO "))
+print(Mapping.get_region("GIZO "))
 #print(Mapping.get_cities_in_the_same_region("Ashkelon "))
 
 
