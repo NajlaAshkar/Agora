@@ -1,6 +1,12 @@
 import sqlalchemy as sa
 from sqlalchemy.ext.declarative import declarative_base
 from DB_metadata import PASSWORD, ENDPOINT, DBNAME
+import logging as log
+from kivymd.app import MDApp
+from kivy.lang import Builder
+from kivy.core.window import Window
+
+window.size(350, 600)
 
 pengine = sa.create_engine('postgresql+psycopg2://postgres:' + PASSWORD + '@' + ENDPOINT + '/' + DBNAME)
 Base = declarative_base()
@@ -10,15 +16,39 @@ metadata.reflect()
 Session = sa.orm.sessionmaker(pengine)
 session = Session()
 
+third_digit = ['0', '1', '2', '3', '4', '5']
+
+
+class UserAlreadyExists(Exception):
+    pass
+
+
+class UserWithIllegalAttributes(Exception):
+    pass
+
+
 class User(Base):
+
     __table__ = sa.Table("User", metadata)
 
-    def __init__(self):
-        pass
+    def __init__(self, phone: str, name: str, email: str):
+        # google should check if the email is legal
+        if len(phone) != 10 or not phone.isdigit() or len(name) > 50 or phone[0] != '0' or phone[1] != '5' or phone[2] not in third_digit or len(name) > 50:
+            message = "Illegal user attributes"
+            log.warning(message)
+            raise UserWithIllegalAttributes(message)
+        self.PhoneNum = phone
+        self.Name = name
+        self.Email = email
 
     @staticmethod
     def add_user(phone, name, email):
-        pass
+        try:
+            session.add(User(phone, name, email))
+            session.commit()
+        except Exception as e:
+            log.warning(e)
+            raise UserAlreadyExists(e)
 
     def authenticate(self):
         pass
