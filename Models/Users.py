@@ -13,6 +13,9 @@ session = Session()
 class User(Base):
     __table__ = sa.Table("User", metadata)
 
+    def __init__(self):
+        pass
+
     @staticmethod
     def add_user(phone, name, email):
         pass
@@ -25,11 +28,10 @@ class User(Base):
 
     @staticmethod
     def get_user_by_phone(phone):
-        pass
+        return session.query(User).filter(User.PhoneNum == phone).first()
 
 
-
-print(session.query(User).filter(User.PhoneNum == "0526866526").first().Name)
+#print(session.query(User).filter(User.PhoneNum == "0526866526").first().Name)
 
 
 
