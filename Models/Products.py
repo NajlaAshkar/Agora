@@ -3,17 +3,8 @@ import logging as log
 import psycopg2
 import Mapping
 from datetime import datetime
-from sqlalchemy.ext.declarative import declarative_base
-from DB_metadata import PASSWORD, ENDPOINT, DBNAME
+from .DB_metadata import Base, metadata, session
 
-
-pengine = sa.create_engine('postgresql+psycopg2://postgres:' + PASSWORD + '@' + ENDPOINT + '/' + DBNAME)
-Base = declarative_base()
-# reflect current database engine to metadata
-metadata = sa.MetaData(pengine)
-metadata.reflect()
-Session = sa.orm.sessionmaker(pengine)
-session = Session()
 
 
 class ProductAlreadyExists(Exception):

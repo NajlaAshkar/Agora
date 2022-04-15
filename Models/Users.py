@@ -1,20 +1,7 @@
 import sqlalchemy as sa
-from sqlalchemy.ext.declarative import declarative_base
-from DB_metadata import PASSWORD, ENDPOINT, DBNAME
 import logging as log
-from kivymd.app import MDApp
-from kivy.lang import Builder
-from kivy.core.window import Window
+from .DB_metadata import Base, metadata, session
 
-window.size(350, 600)
-
-pengine = sa.create_engine('postgresql+psycopg2://postgres:' + PASSWORD + '@' + ENDPOINT + '/' + DBNAME)
-Base = declarative_base()
-# reflect current database engine to metadata
-metadata = sa.MetaData(pengine)
-metadata.reflect()
-Session = sa.orm.sessionmaker(pengine)
-session = Session()
 
 third_digit = ['0', '1', '2', '3', '4', '5']
 

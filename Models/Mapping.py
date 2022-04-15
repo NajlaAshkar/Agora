@@ -1,17 +1,6 @@
 import sqlalchemy as sa
-from sqlalchemy.ext.declarative import declarative_base
 #from sqlalchemy.sql import func
-from sqlalchemy.orm import load_only
-from DB_metadata import PASSWORD, ENDPOINT, DBNAME
-
-
-pengine = sa.create_engine('postgresql+psycopg2://postgres:' + PASSWORD + '@' + ENDPOINT + '/' + DBNAME)
-Base = declarative_base()
-# reflect current database engine to metadata
-metadata = sa.MetaData(pengine)
-metadata.reflect()
-Session = sa.orm.sessionmaker(pengine)
-session = Session()
+from .DB_metadata import Base, metadata, session
 
 
 class Mapping(Base):
