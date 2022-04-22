@@ -14,6 +14,10 @@ class UserWithIllegalAttributes(Exception):
     pass
 
 
+class UserDoesNotExist(Exception):
+    pass
+
+
 class User(Base):
 
     __table__ = sa.Table("User", metadata)
@@ -43,9 +47,23 @@ class User(Base):
     def logout(self):
         pass
 
-    @staticmethod
-    def get_user_by_phone(phone):
-        return session.query(User).filter(User.PhoneNum == phone).first()
+
+def get_user_by_phone(phone):
+    cur = session.query(User).filter(User.PhoneNum == phone).first()
+    if not cur:
+        message = "User with given phone does not exist"
+        log.warning(message)
+        raise UserDoesNotExist(message)
+
+
+def get_user_by_email(email):
+    cur =  session.query(User).filter(User.Email == email).first()
+    if not cur:
+        message = "User with given email does not exist"
+        log.warning(message)
+        raise UserDoesNotExist(message)
+
+
 
 
 #print(session.query(User).filter(User.PhoneNum == "0526866526").first().Name)
