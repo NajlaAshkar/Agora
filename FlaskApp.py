@@ -84,7 +84,7 @@ def get_cities_in_the_same_region():
     data = request.json or request.form
     region = data.get("region", None)
     cities = Mapping.get_cities_in_the_same_region(region)
-    return build_response(json={"cities": cities})
+    return build_response(json={"cities": [cities]})
 
 
 @app.route('/get_all_regions', methods=['GET'])

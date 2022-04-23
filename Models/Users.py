@@ -28,9 +28,10 @@ class User(Base):
             message = "Illegal user attributes"
             log.warning(message)
             raise UserWithIllegalAttributes(message)
-        self.PhoneNum = phone
-        self.Name = name
-        self.Email = email
+        else:
+            self.PhoneNum = phone
+            self.Name = name
+            self.Email = email
 
     def authenticate(self):
         pass
@@ -40,19 +41,18 @@ class User(Base):
 
 
 def add_user(phone, name, email):
+    cur = User(phone, name, email)
+    test = session.query(User).filter(User.Email == email).first()
+    if test:
+        message = "User Already Exists"
+        raise UserAlreadyExists(message)
     try:
-        test = session.query(User).flter(User.Email == email).first()
-        if test:
-            message = " User Already Exists"
-            raise UserAlreadyExists(message)
-        cur = User(phone, name, email)
         session.add(cur)
         session.commit()
     except Exception as e:
         log.warning(e)
-        raise UserWithIllegalAttributes(e)
-    else:
-        return cur
+        raise UserAlreadyExists(e)
+    return cur
 
 
 

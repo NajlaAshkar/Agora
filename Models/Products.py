@@ -1,7 +1,7 @@
 import sqlalchemy as sa
 import logging as log
 import psycopg2
-import Mapping
+from . import Mapping
 from datetime import datetime
 from .DB_metadata import Base, metadata, session
 

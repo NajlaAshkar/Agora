@@ -39,6 +39,6 @@ def get_cities():
 #print(get_regions())
 #print(get_cities())
 #print(get_region("GIZO "))
-#print(get_cities_in_the_same_region("Ashkelon "))
+print(get_cities_in_the_same_region("Ashkelon "))
 
 
