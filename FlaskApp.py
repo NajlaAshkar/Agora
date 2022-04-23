@@ -111,7 +111,7 @@ def add_product():
     image_url = data.get("img_url", None)
 
     try:
-        product = Products.add_product(data, name, category, desc, rating, city, phone, image_url)
+        product = Products.add_product(name, category, desc, rating, city, phone, image_url)
     except Products.ProductAlreadyExists as e:
         return build_response(error_message="Product already exists", error_code=409, code=409)
     except Products.IllegalProductAttributes as e:
@@ -162,7 +162,7 @@ def get_all_products():
     return build_response(json={"products": products})
 
 
-@app.route('/most_viewed_products', methods = ['GET'])
+@app.route('/most_viewed_products', methods=['GET'])
 def get_most_viewed():
     most_viewed = Products.get_most_viewed_products()
     return build_response(json={"most_viewed": most_viewed})
