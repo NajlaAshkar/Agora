@@ -32,20 +32,28 @@ class User(Base):
         self.Name = name
         self.Email = email
 
-    @staticmethod
-    def add_user(phone, name, email):
-        try:
-            session.add(User(phone, name, email))
-            session.commit()
-        except Exception as e:
-            log.warning(e)
-            raise UserAlreadyExists(e)
-
     def authenticate(self):
         pass
 
     def logout(self):
         pass
+
+
+def add_user(phone, name, email):
+    try:
+        test = session.query(User).flter(User.Email == email).first()
+        if test:
+            message = " User Already Exists"
+            raise UserAlreadyExists(message)
+        cur = User(phone, name, email)
+        session.add(cur)
+        session.commit()
+    except Exception as e:
+        log.warning(e)
+        raise UserWithIllegalAttributes(e)
+    else:
+        return cur
+
 
 
 def get_user_by_phone(phone):
@@ -54,14 +62,18 @@ def get_user_by_phone(phone):
         message = "User with given phone does not exist"
         log.warning(message)
         raise UserDoesNotExist(message)
+    else:
+        return cur
 
 
 def get_user_by_email(email):
-    cur =  session.query(User).filter(User.Email == email).first()
+    cur = session.query(User).filter(User.Email == email).first()
     if not cur:
         message = "User with given email does not exist"
         log.warning(message)
         raise UserDoesNotExist(message)
+    else:
+        return cur
 
 
 
