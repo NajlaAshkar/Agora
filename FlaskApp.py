@@ -146,6 +146,8 @@ def add_photo():
         return build_response(error_message="Product does not exist", error_code=409, code=409)
     except Products.ProductHasAnImage as e:
         return build_response(error_message="Product has an image", error_code=409, code=409)
+    except Products.IllegalImgUrl as e:
+        return build_response(error_message="Illegal Img Url", error_code=400, code=400)
     else:
         return build_response(json={"product_id": product_id})
 

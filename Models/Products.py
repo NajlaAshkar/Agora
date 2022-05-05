@@ -22,6 +22,10 @@ class IllegalProductAttributes(Exception):
     pass
 
 
+class IllegalImgUrl(Exception):
+    pass
+
+
 class Products(Base):
 
     __table__ = sa.Table("Products", metadata)
@@ -81,11 +85,17 @@ def add_photo(product_id, img_url):
         message = "Tried to add image to product with id {} which already has one".format(product_id)
         log.warning(message)
         raise ProductHasAnImage(message)
+    img_type = img_url[-3:]
+    if img_url == '' or img_type not in ["png", "jpeg", "jpg"]:
+        message = "Tried to add image to product with id {} using broken img url".format(product_id)
+        log.warning(message)
+        raise IllegalImgUrl(message)
     try:
-        # read data from a picture
-        pic = open(img_url, 'rb').read()
-        #product.Image = psycopg2.Binary(pic)
-        session.query(Products).update(Products).where(Products.ID == product_id).values(Image=psycopg2.Binary(pic))
+        with open(img_url, "rb") as image:
+            pic = image.read()
+            b = bytes(pic)
+            product.Image = b
+        session.commit()
     except Exception as error:
         log.warning(error)
     else:
@@ -154,5 +164,5 @@ def get_products_by_name(name):
     return [product.ID for product in tmp]
 
 #print(Products.get_products_ordered_by_date())
-print(get_all_products())
+#print(get_all_products())
 
