@@ -14,6 +14,10 @@ class UserWithIllegalAttributes(Exception):
     pass
 
 
+class UserDoesNotExist(Exception):
+    pass
+
+
 class User(Base):
 
     __table__ = sa.Table("User", metadata)
@@ -24,18 +28,10 @@ class User(Base):
             message = "Illegal user attributes"
             log.warning(message)
             raise UserWithIllegalAttributes(message)
-        self.PhoneNum = phone
-        self.Name = name
-        self.Email = email
-
-    @staticmethod
-    def add_user(phone, name, email):
-        try:
-            session.add(User(phone, name, email))
-            session.commit()
-        except Exception as e:
-            log.warning(e)
-            raise UserAlreadyExists(e)
+        else:
+            self.PhoneNum = phone
+            self.Name = name
+            self.Email = email
 
     def authenticate(self):
         pass
@@ -43,9 +39,43 @@ class User(Base):
     def logout(self):
         pass
 
-    @staticmethod
-    def get_user_by_phone(phone):
-        return session.query(User).filter(User.PhoneNum == phone).first()
+
+def add_user(phone, name, email):
+    cur = User(phone, name, email)
+    test = session.query(User).filter(User.Email == email).first()
+    if test:
+        message = "User Already Exists"
+        raise UserAlreadyExists(message)
+    try:
+        session.add(cur)
+        session.commit()
+    except Exception as e:
+        log.warning(e)
+        raise UserAlreadyExists(e)
+    return cur
+
+
+
+def get_user_by_phone(phone):
+    cur = session.query(User).filter(User.PhoneNum == phone).first()
+    if not cur:
+        message = "User with given phone does not exist"
+        log.warning(message)
+        raise UserDoesNotExist(message)
+    else:
+        return cur
+
+
+def get_user_by_email(email):
+    cur = session.query(User).filter(User.Email == email).first()
+    if not cur:
+        message = "User with given email does not exist"
+        log.warning(message)
+        raise UserDoesNotExist(message)
+    else:
+        return cur
+
+
 
 
 #print(session.query(User).filter(User.PhoneNum == "0526866526").first().Name)
