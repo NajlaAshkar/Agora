@@ -2,11 +2,14 @@ from flask import Flask, request
 from flask_login import LoginManager
 from flask_session import Session
 import os
+from Models.DB_metadata import PASSWORD, ENDPOINT, DBNAME
 from Models import Users, Mapping, Products, validate_database
 
 def init_app():
 
     flaskApp = Flask(__name__)
+    flaskApp.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:' + PASSWORD + '@' + ENDPOINT + '/' + DBNAME
+    flaskApp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     from Models import db
     db.init_app(flaskApp)
     # login_manager = LoginManager()
