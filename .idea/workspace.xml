@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="" />
+    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="merged branches">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlaskApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlaskApp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Users.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Users.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -326,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652293511515</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="merged branches">
+      <created>1652296462463</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1652296462463</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -362,7 +374,8 @@
     <MESSAGE value="tested all routes, &quot;add_image&quot; not working yet" />
     <MESSAGE value="fixed &quot;add_photo&quot;" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="merged branches" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged branches" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

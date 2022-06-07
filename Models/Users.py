@@ -55,7 +55,6 @@ def add_user(phone, name, email):
     return cur
 
 
-
 def get_user_by_phone(phone):
     cur = session.query(User).filter(User.PhoneNum == phone).first()
     if not cur:

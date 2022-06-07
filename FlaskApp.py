@@ -49,7 +49,8 @@ def user_login():
         user = Users.get_user_by_email(email)
         data = {"email": user.Email, "phone": user.PhoneNum, "name": user.Name}
     except Users.UserDoesNotExist as e:
-        return build_response(code=401, error_code=401, error_message=e.args[0])
+        data = {"email": email}
+        return build_response(json=data, code=200)
     return build_response(json=data, code=200)
 
 
