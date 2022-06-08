@@ -68,9 +68,10 @@ def get_user_by_phone(phone):
 def get_user_by_email(email):
     cur = session.query(User).filter(User.Email == email).first()
     if not cur:
-        message = "User with given email does not exist"
-        log.warning(message)
-        raise UserDoesNotExist(message)
+        # message = "User with given email does not exist"
+        # log.warning(message)
+        # raise UserDoesNotExist(message)
+        return None
     else:
         return cur
 
