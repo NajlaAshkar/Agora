@@ -45,6 +45,8 @@ def index():
 def user_login():
     data = request.json or request.form
     email = data.get("email", None)
+    if not email:
+        return build_response(error_message="Illegal Attributes", error_code=400, code=400)
     try:
         user = Users.get_user_by_email(email)
         data = {"email": user.Email, "phone": user.PhoneNum, "name": user.Name}
