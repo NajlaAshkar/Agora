@@ -31,8 +31,6 @@ class Products(Base):
     __table__ = sa.Table("Products", metadata)
 
     def __init__(self, name: str, category: int, description: str, rating: int, city: str, phone: str, image_url=None):
-        print("aloooooo")
-        print(name)
         if len(name) > 50 or not (0 <= category <= 5) or len(description) > 200 or not (1 <= rating <= 5) or len(city) > 50 or len(phone) != 10:
             message = "tried to add a product with illegal attributes"
             log.warning(message)
@@ -49,8 +47,15 @@ class Products(Base):
             pic = open(image_url, 'rb').read()
             self.Image = psycopg2.Binary(pic)
 
-    def inc_num_of_views(self):
-        self.NumOfViewa += 1
+
+def inc_num_of_views(product_id):
+    product = session.query(Products).get(product_id)
+    if product is None:
+        message = "Tried to access product with id {} which does not exist".format(product)
+        log.warning(message)
+        raise ProductDoesNotExist(message)
+    product.NumOfViews += 1
+    session.commit()
 
 
 def add_product(name, category, description, rating, city, phone, image_url=None):
