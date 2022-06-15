@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="refactoring">
+    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="added support to inc num of views">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Products.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Products.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlaskApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlaskApp.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -371,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654700950775</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="added support to inc num of views">
+      <created>1655121564700</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1655121564700</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -409,7 +416,8 @@
     <MESSAGE value="merged branches" />
     <MESSAGE value="fixed a  bug in  login" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="added support to inc num of views" />
+    <option name="LAST_COMMIT_MESSAGE" value="added support to inc num of views" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -56,6 +56,20 @@ def user_login():
     return build_response(json=data, code=200)
 
 
+@app.route('/get_user_by_email', methods=['GET', 'POST'])
+def user_login():
+    data = request.json or request.form
+    email = data.get("email", None)
+    if not email:
+        return build_response(error_message="Illegal Attributes", error_code=400, code=400)
+    try:
+        user = Users.get_user_by_email(email)
+    except Users.UserDoesNotExist as e:
+        return build_response(error_message="User does not exist", error_code=409, code=409)
+    data = {"email": user.Email, "phone": user.PhoneNum, "name": user.Name}
+    return build_response(json=data, code=200)
+
+
 @app.route('/logout', methods=['POST'])
 def user_logout():
     pass
