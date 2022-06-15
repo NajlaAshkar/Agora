@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="added support to inc num of views">
+    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="added get user by email route">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlaskApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlaskApp.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -378,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655121564700</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="added get user by email route">
+      <created>1655309098432</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1655309098432</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -417,7 +423,8 @@
     <MESSAGE value="fixed a  bug in  login" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="added support to inc num of views" />
-    <option name="LAST_COMMIT_MESSAGE" value="added support to inc num of views" />
+    <MESSAGE value="added get user by email route" />
+    <option name="LAST_COMMIT_MESSAGE" value="added get user by email route" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

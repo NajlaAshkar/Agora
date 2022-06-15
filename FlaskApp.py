@@ -57,7 +57,7 @@ def user_login():
 
 
 @app.route('/get_user_by_email', methods=['GET', 'POST'])
-def user_login():
+def get_user():
     data = request.json or request.form
     email = data.get("email", None)
     if not email:
