@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="fixed function name">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="changed image format">
       <change beforePath="$PROJECT_DIR$/Models/Products.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Products.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -392,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655314707935</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="changed image format">
+      <created>1655471015130</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1655471015130</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -433,7 +439,8 @@
     <MESSAGE value="added support to inc num of views" />
     <MESSAGE value="added get user by email route" />
     <MESSAGE value="fixed function name" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed function name" />
+    <MESSAGE value="changed image format" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed image format" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

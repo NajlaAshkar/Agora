@@ -1,6 +1,8 @@
 import sqlalchemy as sa
 import logging as log
 import psycopg2
+import werkzeug.utils
+
 from . import Mapping
 from datetime import datetime
 from .DB_metadata import Base, metadata, session
@@ -46,7 +48,7 @@ class Products(Base):
         if image_url is not None:
             #pic = open(image_url, 'rb').read()
             #self.Image = psycopg2.Binary(pic)
-            self.Image = psycopg2.Binary(image_url)
+            self.Image = image_url
 
 
 def inc_num_of_views(product_id):
