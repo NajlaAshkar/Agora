@@ -44,8 +44,9 @@ class Products(Base):
         self.City = city
         self.PhoneNum = phone
         if image_url is not None:
-            pic = open(image_url, 'rb').read()
-            self.Image = psycopg2.Binary(pic)
+            #pic = open(image_url, 'rb').read()
+            #self.Image = psycopg2.Binary(pic)
+            self.Image = psycopg2.Binary(image_url)
 
 
 def inc_num_of_views(product_id):
