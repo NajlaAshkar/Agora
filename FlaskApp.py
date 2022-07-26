@@ -1,3 +1,6 @@
+from datetime import time
+
+import werkzeug
 from flask import Flask, request
 from flask_login import LoginManager
 from flask_session import Session
@@ -155,11 +158,30 @@ def delete_product():
         return build_response(json={"product_id": product_id})
 
 
+@app.route('/add_image', methods=['GET', 'POST'])
+# saves image locally and then should call "add_photo" in order to save its path in the DB
+# TODO: send also product id so we can call add_photo directly from this method + convert it to allow only 1 photo selection
+def handle_request():
+    files_ids = list(request.files)
+    print("\nNumber of Received Images : ", len(files_ids))
+    image_num = 1
+    for file_id in files_ids:
+        print("\nSaving Image ", str(image_num), "/", len(files_ids))
+        imagefile = request.files[file_id]
+        filename = werkzeug.utils.secure_filename(imagefile.filename)
+        print("Image Filename : " + imagefile.filename)
+        timestr = time.strftime("%Y%m%d-%H%M%S")
+        imagefile.save(timestr + '_' + filename)
+        image_num = image_num + 1
+    print("\n")
+    return "Image(s) Uploaded Successfully. Come Back Soon."
+
+
 @app.route('/add_photo', methods=['GET', 'POST'])
-def add_photo():
-    data = request.json or request.form
-    product_id = data.get("product_id", None)
-    img_url = data.get("img_url", None)
+def add_photo(product_id, img_url):
+    # data = request.json or request.form
+    # product_id = data.get("product_id", None)
+    # img_url = data.get("img_url", None)
     try:
         Products.add_photo(product_id, img_url)
     except Products.ProductDoesNotExist as e:

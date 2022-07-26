@@ -94,21 +94,23 @@ def add_photo(product_id, img_url):
         log.warning(message)
         raise ProductHasAnImage(message)
     img_type = img_url[-3:]
-    if img_url == '' or img_type not in ["png", "jpeg", "jpg"]:
+    img_type2 = img_url[-4:]
+    if img_url == '' or (img_type not in ["png", "jpg"] and img_type2 not in ["jpeg"]):
         message = "Tried to add image to product with id {} using broken img url".format(product_id)
         log.warning(message)
         raise IllegalImgUrl(message)
-    try:
-        with open(img_url, "rb") as image:
-            pic = image.read()
-            b = bytes(pic)
-            product.Image = b
-        session.commit()
-    except Exception as error:
-        log.warning(error)
-    else:
-        session.commit()
-        return product
+    product.Image = img_url
+    # try:
+    #     with open(img_url, "rb") as image:
+    #         pic = image.read()
+    #         b = bytes(pic)
+    #         product.Image = b
+    #     session.commit()
+    # except Exception as error:
+    #     log.warning(error)
+    # else:
+    #     session.commit()
+    #     return product
 
 
 def get_products_ordered_by_date():
