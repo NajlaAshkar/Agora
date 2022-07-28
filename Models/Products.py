@@ -33,6 +33,7 @@ class Products(Base):
     __table__ = sa.Table("Products", metadata)
 
     def __init__(self, name: str, category: int, description: str, rating: int, city: str, phone: str, image_url=None):
+        print("name:",name, "desc:", description,"city:",city, "phone:",phone, "image:", image_url)
         if len(name) > 50 or not (0 <= category <= 5) or len(description) > 200 or not (1 <= rating <= 5) or len(city) > 50 or len(phone) != 10:
             message = "tried to add a product with illegal attributes"
             log.warning(message)
@@ -47,8 +48,9 @@ class Products(Base):
         self.PhoneNum = phone
         if image_url is not None:
             #pic = open(image_url, 'rb').read()
-            #self.Image = psycopg2.Binary(pic)
-            self.Image = image_url
+            self.Image = psycopg2.Binary(image_url)
+            #session.commit()
+            #self.Image = image_url
 
 
 def inc_num_of_views(product_id):
@@ -68,6 +70,7 @@ def add_product(name, category, description, rating, city, phone, image_url=None
         session.commit()
     except Exception as e:
         log.warning(e)
+        print(e)
         raise ProductAlreadyExists(e)
     else:
         return cur

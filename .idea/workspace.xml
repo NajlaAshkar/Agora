@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="changed image format">
+    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="fixed function name">
+      <change beforePath="$PROJECT_DIR$/.idea/Agora.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Agora.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlaskApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlaskApp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/Products.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Products.py" afterDir="false" />
@@ -26,10 +46,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Models/DB_metadata.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/venv/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Models/Products.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/DB_metadata.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="27TRF1B2dTuE9gB1nx4JmQvX3oU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -451,6 +473,52 @@
     <MESSAGE value="changed image format" />
     <option name="LAST_COMMIT_MESSAGE" value="changed image format" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="116" key="FileChooserDialogImpl" timestamp="1658777670935">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1658777670935" />
+    <state width="1259" height="17" key="GridCell.Tab.0.bottom" timestamp="1659023516549">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1259" height="314" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1655491499660" />
+    <state width="1259" height="17" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1659023516549" />
+    <state width="1259" height="17" key="GridCell.Tab.0.center" timestamp="1659023516549">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1259" height="314" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1655491499660" />
+    <state width="1259" height="17" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1659023516549" />
+    <state width="1259" height="17" key="GridCell.Tab.0.left" timestamp="1659023516549">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1259" height="314" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1655491499659" />
+    <state width="1259" height="17" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1659023516549" />
+    <state width="1259" height="17" key="GridCell.Tab.0.right" timestamp="1659023516549">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1259" height="314" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1655491499660" />
+    <state width="1259" height="17" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1659023516549" />
+    <state width="1259" height="260" key="GridCell.Tab.1.bottom" timestamp="1659011647242">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1259" height="260" key="GridCell.Tab.1.bottom/0.0.1280.720@0.0.1280.720" timestamp="1659011647242" />
+    <state width="1259" height="260" key="GridCell.Tab.1.center" timestamp="1659011647242">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1259" height="260" key="GridCell.Tab.1.center/0.0.1280.720@0.0.1280.720" timestamp="1659011647242" />
+    <state width="1259" height="260" key="GridCell.Tab.1.left" timestamp="1659011647241">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1259" height="260" key="GridCell.Tab.1.left/0.0.1280.720@0.0.1280.720" timestamp="1659011647241" />
+    <state width="1259" height="260" key="GridCell.Tab.1.right" timestamp="1659011647242">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1259" height="260" key="GridCell.Tab.1.right/0.0.1280.720@0.0.1280.720" timestamp="1659011647242" />
+    <state x="458" y="275" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1659011142756">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="458" y="275" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.720@0.0.1280.720" timestamp="1659011142756" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -458,6 +526,16 @@
           <url>file://$PROJECT_DIR$/Models/DB_metadata.py</url>
           <line>38</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FlaskApp.py</url>
+          <line>143</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FlaskApp.py</url>
+          <line>190</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
