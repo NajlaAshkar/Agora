@@ -5,7 +5,7 @@ import time
 
 import flask
 import werkzeug
-from flask import Flask, request
+from flask import Flask, request, send_from_directory
 from flask_login import LoginManager
 from flask_session import Session
 import os
@@ -46,6 +46,11 @@ def build_response(message=None, code=200, error_code=-1, json=None, error_messa
 @app.route('/', methods=['GET'])
 def index():
     return "Successfully Connected"
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
 @app.route('/login', methods=['GET', 'POST'])
