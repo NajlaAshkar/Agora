@@ -176,6 +176,10 @@ def get_products_by_name(name):
     tmp = session.query(Products).filter(Products.Name == name).all()
     return [product.ID for product in tmp]
 
+def get_product_by_id(id):
+    tmp = session.query(Products).filter(Products.ID == id).all()
+    return tmp[0]
+
 #print(Products.get_products_ordered_by_date())
 #print(get_all_products())
 

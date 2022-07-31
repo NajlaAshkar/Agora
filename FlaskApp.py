@@ -280,6 +280,32 @@ def filter_products():
                        rating_filtered, name_filtered))
 
 
+@app.route('/get_product_by_id', methods=['POST'])
+def get_product_by_id():
+    data = request.json or request.form
+    id = data.get("product_id", None)
+    try:
+        cur = Products.get_product_by_id(id)
+    except Products.ProductDoesNotExist as e:
+        return build_response(error_message="Product does not exist", error_code=409, code=409)
+    else:
+        json = Products.toJson(cur)
+        return build_response(json=json)
+
+
+@app.route('/inc_num_of_views', methods=['POST'])
+def inc_num_of_views():
+    data = request.json or request.form
+    id = data.get("product_id", None)
+    try:
+        Products.inc_num_of_views(id)
+    except Products.ProductDoesNotExist as e:
+        return build_response(error_message="Product does not exist", error_code=409, code=409)
+    else:
+        return build_response(json={})
+
+
+
 
 if __name__ == "__main__":
     os.chdir("../")
