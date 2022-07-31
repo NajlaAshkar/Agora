@@ -296,7 +296,12 @@ def get_product_by_id():
 @app.route('/inc_num_of_views', methods=['POST'])
 def inc_num_of_views():
     data = request.json or request.form
+    user_email = data.get("email", None)
+    user = Users.get_user_by_email(user_email)
     id = data.get("product_id", None)
+    product = Products.get_product_by_id(id)
+    if product.PhoneNum == user.PhoneNum:
+        return build_response(json={})
     try:
         Products.inc_num_of_views(id)
     except Products.ProductDoesNotExist as e:
