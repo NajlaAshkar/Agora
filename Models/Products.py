@@ -168,7 +168,7 @@ def get_products_by_rating(rating):
 
 def get_most_viewed_products():
     tmp = session.query(Products).order_by(Products.NumOfViews).limit(10).all()
-    return [product.ID for product in tmp]
+    return [toJson(product) for product in tmp]
 
 
 def get_products_by_name(name):
