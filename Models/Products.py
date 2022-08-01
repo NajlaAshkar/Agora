@@ -117,9 +117,11 @@ def add_photo(product_id, img_url):
 
 
 def get_products_ordered_by_date():
-    products = get_all_products()
-    products.sort(key=lambda product: product["date"])
-    return products
+    # products = get_all_products()
+    # products.sort(key=lambda product: product["date"])
+    # return products
+    tmp = session.query(Products).order_by(Products.Date.desc()).all()
+    return [toJson(product) for product in tmp]
 
 
 def toJson(product):
@@ -167,7 +169,7 @@ def get_products_by_rating(rating):
 
 
 def get_most_viewed_products():
-    tmp = session.query(Products).order_by(Products.NumOfViews).limit(10).all()
+    tmp = session.query(Products).order_by(Products.NumOfViews.desc()).limit(10).all()
     return [toJson(product) for product in tmp]
 
 
