@@ -17,6 +17,7 @@ def init_app():
     flaskApp = Flask(__name__)
     flaskApp.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:' + PASSWORD + '@' + ENDPOINT + '/' + DBNAME
     flaskApp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    flaskApp.config['Accept-encoding'] = True
     from Models import db
     db.init_app(flaskApp)
     # login_manager = LoginManager()

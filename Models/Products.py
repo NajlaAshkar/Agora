@@ -1,7 +1,9 @@
+import base64
+
 import sqlalchemy as sa
 import logging as log
 import psycopg2
-import werkzeug.utils
+from PIL import Image
 
 from . import Mapping
 from datetime import datetime
@@ -125,10 +127,22 @@ def get_products_ordered_by_date():
 
 
 def toJson(product):
+
+    if product.Image is None:
+        return {"name": product.Name, "category": product.Category, "description": product.Description,
+                "rating": product.Rating, "city": product.City, "phone": product.PhoneNum,
+                "image_url": product.Image, "ID": product.ID, "region": product.Region,
+                "date": product.Date, "views": product.NumOfViews, "has_image": "no"}
+
+    # img = Image.open(product.Image)
+    # img_bitmap = img.tobitmap()
+    with open(product.Image, "rb") as image:
+        b64string = base64.b64encode(image.read()).decode('ASCII')
+
     return {"name": product.Name, "category": product.Category, "description": product.Description,
             "rating": product.Rating, "city": product.City, "phone": product.PhoneNum,
-            "image_url": product.Image, "ID": product.ID, "region": product.Region,
-            "date": product.Date, "views": product.NumOfViews}
+            "image_url": b64string, "ID": product.ID, "region": product.Region,
+            "date": product.Date, "views": product.NumOfViews, "has_image": "yes"}
 
 def get_all_products():
     # no need to specify a column
