@@ -237,6 +237,9 @@ def get_most_viewed():
     most_viewed = Products.get_most_viewed_products()
     return build_response(json={"most_viewed": most_viewed})
 
+def intersection(lst1, lst2):
+    lst3 = [value for value in lst1 if value in lst2]
+    return lst3
 
 @app.route('/filter_products', methods=['POST'])
 def filter_products():
@@ -251,7 +254,7 @@ def filter_products():
     categories = data.get("categories", None)
     rating = data.get("rating", None)
     name = data.get("name", None)
-    all_products = Products.get_all_products()
+    all_products = Products.get_all_products_ids()
     if cities:
         cities_filtered = Products.get_products_by_city(cities)
     else:
@@ -266,10 +269,12 @@ def filter_products():
         img_filtered = all_products
     if categories:
         categories_filtered = Products.get_products_by_category(categories)
+        print(categories_filtered)
     else:
         categories_filtered = all_products
     if rating:
         rating_filtered = Products.get_products_by_rating(rating)
+        print(rating_filtered)
     else:
         rating_filtered = all_products
     if name:
@@ -277,8 +282,13 @@ def filter_products():
     else:
         name_filtered = all_products
 
-    return list(filter(lambda product: product in cities_filtered, regions_filtered, img_filtered, categories_filtered,
-                       rating_filtered, name_filtered))
+    filtered_products = intersection(intersection(intersection(intersection(cities_filtered, regions_filtered), img_filtered), categories_filtered),rating_filtered)
+    print(filtered_products)
+    res = []
+    for i in filtered_products:
+        res.append(Products.toJson_minimal(Products.get_product_by_id(i)))
+    print(len(res))
+    return build_response(json={"products": res})
 
 
 @app.route('/get_product_by_id', methods=['POST'])

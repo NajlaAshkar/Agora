@@ -144,6 +144,12 @@ def toJson(product):
             "image_url": b64string, "ID": product.ID, "region": product.Region,
             "date": product.Date, "views": product.NumOfViews, "has_image": "yes"}
 
+
+def toJson_minimal(product):
+
+    return {"name": product.Name, "rating": product.Rating, "city": product.City, "ID": product.ID}
+
+
 def get_all_products():
     # no need to specify a column
     products = session.query(Products).all()
@@ -172,7 +178,7 @@ def get_products_by_photo():
 
 
 def get_products_by_category(categories):
-    tmp = session.query(Products).filter_by(Products.Category in categories).all()
+    tmp = session.query(Products).filter(Products.Category == categories).all()
     return [product.ID for product in tmp]
 
 
@@ -184,7 +190,7 @@ def get_products_by_rating(rating):
 
 def get_most_viewed_products():
     tmp = session.query(Products).order_by(Products.NumOfViews.desc()).limit(10).all()
-    return [toJson(product) for product in tmp]
+    return [product.ID for product in tmp]
 
 
 def get_products_by_name(name):
@@ -192,9 +198,15 @@ def get_products_by_name(name):
     tmp = session.query(Products).filter(Products.Name == name).all()
     return [product.ID for product in tmp]
 
+
 def get_product_by_id(id):
     tmp = session.query(Products).filter(Products.ID == id).all()
     return tmp[0]
+
+
+def get_all_products_ids():
+    tmp = session.query(Products).all()
+    return [product.ID for product in tmp]
 
 #print(Products.get_products_ordered_by_date())
 #print(get_all_products())
