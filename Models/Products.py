@@ -163,17 +163,27 @@ def get_all_products():
 
 def get_products_by_city(cities):
     # cities is a list of cities name - can assume that all of them exists
-    tmp = session.query(Products).filter_by(Products.City in cities).all()
-    return [product.ID for product in tmp]
+    tmp = session.query(Products).all()
+    res = []
+    for product in tmp:
+        if product.City in cities:
+            res.append(product.ID)
+    return res
 
 
 def get_products_by_region(regions):
     # same as cities above
-    tmp = session.query(Products).filter_by(Products.Region in regions).all()
-    return [product.ID for product in tmp]
+    tmp = session.query(Products).all()
+    res = []
+    for product in tmp:
+        if product.Region in regions:
+            res.append(product.ID)
+    return res
+
+
 
 def get_products_by_photo():
-    tmp = session.query(Products).filter(not(Products.Image is None)).all()
+    tmp = session.query(Products).filter(Products.Image.is_not(None)).all()
     return [product.ID for product in tmp]
 
 
@@ -190,7 +200,7 @@ def get_products_by_rating(rating):
 
 def get_most_viewed_products():
     tmp = session.query(Products).order_by(Products.NumOfViews.desc()).limit(10).all()
-    return [product.ID for product in tmp]
+    return [toJson_minimal(product) for product in tmp]
 
 
 def get_products_by_name(name):
@@ -208,6 +218,5 @@ def get_all_products_ids():
     tmp = session.query(Products).all()
     return [product.ID for product in tmp]
 
-#print(Products.get_products_ordered_by_date())
-#print(get_all_products())
+
 

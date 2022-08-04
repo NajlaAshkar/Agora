@@ -257,24 +257,27 @@ def filter_products():
     all_products = Products.get_all_products_ids()
     if cities:
         cities_filtered = Products.get_products_by_city(cities)
+        print("city: ", cities_filtered)
     else:
         cities_filtered = all_products
     if regions:
         regions_filtered = Products.get_products_by_region(regions)
+        print("regions: ", regions_filtered)
     else:
         regions_filtered = all_products
     if has_img:
         img_filtered = Products.get_products_by_photo()
+        print("images: ", img_filtered)
     else:
         img_filtered = all_products
     if categories:
         categories_filtered = Products.get_products_by_category(categories)
-        print(categories_filtered)
+        print("categories: ", categories_filtered)
     else:
         categories_filtered = all_products
     if rating:
         rating_filtered = Products.get_products_by_rating(rating)
-        print(rating_filtered)
+        print("rating: ", rating_filtered)
     else:
         rating_filtered = all_products
     if name:
@@ -287,7 +290,6 @@ def filter_products():
     res = []
     for i in filtered_products:
         res.append(Products.toJson_minimal(Products.get_product_by_id(i)))
-    print(len(res))
     return build_response(json={"products": res})
 
 

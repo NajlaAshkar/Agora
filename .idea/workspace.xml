@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="updated image sending to android">
+    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="fixed a bug in filter function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlaskApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlaskApp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/Products.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Products.py" afterDir="false" />
@@ -463,7 +463,13 @@
       <option name="presentableId" value="LOCAL‎00034" />
       <updated>1659532686043</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL‎00035" summary="fixed a bug in filter function">
+      <created>1659549655293</created>
+      <option name="number" value="LOCAL‎00035" />
+      <option name="presentableId" value="LOCAL‎00035" />
+      <updated>1659549655294</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -484,7 +490,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Trying to solve circular dependency" />
     <MESSAGE value="solved dependencies and created a class for each table with methods to be implemented" />
     <MESSAGE value="implemented &quot;Mappings&quot; DB methods and tested them" />
     <MESSAGE value="implemented most of &quot;Products&quot; DB methods" />
@@ -509,37 +514,38 @@
     <MESSAGE value="refactoring" />
     <MESSAGE value="fixed a bug in &quot;get most viewed&quot;" />
     <MESSAGE value="updated image sending to android" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated image sending to android" />
+    <MESSAGE value="fixed a bug in filter function" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed a bug in filter function" />
   </component>
   <component name="WindowStateProjectService">
     <state x="421" y="116" key="FileChooserDialogImpl" timestamp="1658777670935">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1658777670935" />
-    <state width="1259" height="546" key="GridCell.Tab.0.bottom" timestamp="1659544743914">
+    <state width="1259" height="380" key="GridCell.Tab.0.bottom" timestamp="1659625847348">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="1259" height="452" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1659290611111" />
     <state width="1899" height="301" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1659120537421" />
-    <state width="1259" height="546" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1659544743914" />
-    <state width="1259" height="546" key="GridCell.Tab.0.center" timestamp="1659544743914">
+    <state width="1259" height="380" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1659625847348" />
+    <state width="1259" height="380" key="GridCell.Tab.0.center" timestamp="1659625847347">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="1259" height="452" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1659290611111" />
     <state width="1899" height="301" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1659120537420" />
-    <state width="1259" height="546" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1659544743914" />
-    <state width="1259" height="546" key="GridCell.Tab.0.left" timestamp="1659544743913">
+    <state width="1259" height="380" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1659625847347" />
+    <state width="1259" height="380" key="GridCell.Tab.0.left" timestamp="1659625847347">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="1259" height="452" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1659290611110" />
     <state width="1899" height="301" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1659120537420" />
-    <state width="1259" height="546" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1659544743913" />
-    <state width="1259" height="546" key="GridCell.Tab.0.right" timestamp="1659544743914">
+    <state width="1259" height="380" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1659625847347" />
+    <state width="1259" height="380" key="GridCell.Tab.0.right" timestamp="1659625847347">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="1259" height="452" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1659290611111" />
     <state width="1899" height="301" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1659120537421" />
-    <state width="1259" height="546" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1659544743914" />
+    <state width="1259" height="380" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1659625847347" />
     <state width="1259" height="117" key="GridCell.Tab.1.bottom" timestamp="1659539476106">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -556,12 +562,12 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="1259" height="117" key="GridCell.Tab.1.right/0.0.1280.720@0.0.1280.720" timestamp="1659539476106" />
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1659532688294">
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1659549656641">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1659291039228" />
     <state x="2270" y="141" key="Vcs.Push.Dialog.v2/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1659121094113" />
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1659532688294" />
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1659549656641" />
     <state x="458" y="275" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1659011142756">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
