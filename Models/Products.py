@@ -49,10 +49,8 @@ class Products(Base):
         self.City = city
         self.PhoneNum = phone
         if image_url is not None:
-            #pic = open(image_url, 'rb').read()
             self.Image = psycopg2.Binary(image_url)
-            #session.commit()
-            #self.Image = image_url
+
 
 
 def inc_num_of_views(product_id):
@@ -105,17 +103,6 @@ def add_photo(product_id, img_url):
         log.warning(message)
         raise IllegalImgUrl(message)
     product.Image = img_url
-    # try:
-    #     with open(img_url, "rb") as image:
-    #         pic = image.read()
-    #         b = bytes(pic)
-    #         product.Image = b
-    #     session.commit()
-    # except Exception as error:
-    #     log.warning(error)
-    # else:
-    #     session.commit()
-    #     return product
 
 
 def get_products_ordered_by_date():
@@ -209,8 +196,8 @@ def get_products_by_name(name):
     return [product.ID for product in tmp]
 
 
-def get_product_by_id(id):
-    tmp = session.query(Products).filter(Products.ID == id).all()
+def get_product_by_id(_id):
+    tmp = session.query(Products).filter(Products.ID == _id).all()
     return tmp[0]
 
 
