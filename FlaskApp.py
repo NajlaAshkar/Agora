@@ -129,6 +129,7 @@ def get_all_regions():
 @app.route('/get_all_cities', methods=['GET'])
 def get_all_cities():
     cities = Mapping.get_cities()
+    cities.sort()
     return build_response(json={"cities": cities})
 
 
