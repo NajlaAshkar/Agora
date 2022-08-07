@@ -3,7 +3,6 @@ import base64
 import sqlalchemy as sa
 import logging as log
 import psycopg2
-from PIL import Image
 
 from . import Mapping
 from datetime import datetime
@@ -55,6 +54,7 @@ class Products(Base):
 
 def inc_num_of_views(product_id):
     product = session.query(Products).get(product_id)
+    print("product id ***:", product_id)
     if product is None:
         message = "Tried to access product with id {} which does not exist".format(product)
         log.warning(message)
@@ -119,7 +119,7 @@ def toJson(product):
         return {"name": product.Name, "category": product.Category, "description": product.Description,
                 "rating": product.Rating, "city": product.City, "phone": product.PhoneNum,
                 "image_url": product.Image, "ID": product.ID, "region": product.Region,
-                "date": product.Date, "views": product.NumOfViews, "has_image": "no"}
+                "has_image": "no"}
 
     # img = Image.open(product.Image)
     # img_bitmap = img.tobitmap()
@@ -129,7 +129,7 @@ def toJson(product):
     return {"name": product.Name, "category": product.Category, "description": product.Description,
             "rating": product.Rating, "city": product.City, "phone": product.PhoneNum,
             "image_url": b64string, "ID": product.ID, "region": product.Region,
-            "date": product.Date, "views": product.NumOfViews, "has_image": "yes"}
+            "has_image": "yes"}
 
 
 def toJson_minimal(product):
@@ -142,7 +142,7 @@ def get_all_products():
     products = session.query(Products).all()
     res = []
     for product in products:
-        res.append(toJson(product))
+        res.append(toJson_minimal(product))
     return res
 
 

@@ -1,3 +1,4 @@
+import gzip
 from datetime import time
 
 import werkzeug
@@ -5,10 +6,13 @@ import time
 
 import flask
 import werkzeug
-from flask import Flask, request, send_from_directory
+from flask import Flask, request, send_from_directory, make_response
 from flask_login import LoginManager
 from flask_session import Session
 import os
+
+import json
+
 from Models.DB_metadata import PASSWORD, ENDPOINT, DBNAME
 from Models import Users, Mapping, Products, validate_database
 
@@ -303,8 +307,13 @@ def get_product_by_id():
     except Products.ProductDoesNotExist as e:
         return build_response(error_message="Product does not exist", error_code=409, code=409)
     else:
-        json = Products.toJson(cur)
-        return build_response(json=json)
+        res = Products.toJson(cur)
+        content = gzip.compress(json.dumps(res).encode('utf8'), 5)
+        response = make_response(content)
+        response.headers['Content-length'] = len(content)
+        response.headers['Content-Encoding'] = 'gzip'
+        return response
+        # return build_response(json=json)
 
 
 @app.route('/inc_num_of_views', methods=['POST'])
