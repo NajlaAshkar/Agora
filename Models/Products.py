@@ -4,7 +4,9 @@ import sqlalchemy as sa
 import logging as log
 import psycopg2
 
-from . import Mapping
+import geopy.distance
+
+from . import Mapping, citiesinfo
 from datetime import datetime
 from .DB_metadata import Base, metadata, session
 
@@ -204,6 +206,18 @@ def get_product_by_id(_id):
 def get_all_products_ids():
     tmp = session.query(Products).all()
     return [product.ID for product in tmp]
+
+
+def get_all_products_radius_serach(radius, lat, lng):
+    products = session.query(Products).all()
+    cur_cords = (lat, lng)
+    res = []
+    for product in products:
+        city = product.City
+        cords = citiesinfo.get_cords_by_city(city)
+        if geopy.distance.geodesic(cur_cords, cords).km <= radius:
+            res.append(toJson_minimal(product))
+    return res
 
 
 

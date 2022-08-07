@@ -333,6 +333,16 @@ def inc_num_of_views():
         return build_response(json={})
 
 
+@app.route('/get_products_in_search_radius', methods=['POST'])
+def get_products_in_search_radius():
+    data = request.json or request.form
+    radius = data.get("radius", None)
+    lat = data.get("lat", None)
+    lng = data.get("lng", None)
+    products = Products.get_all_products_radius_serach(radius, lat, lng)
+    return build_response(json={"products": products})
+
+
 
 
 if __name__ == "__main__":
