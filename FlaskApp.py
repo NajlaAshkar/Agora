@@ -14,7 +14,8 @@ import os
 import json
 
 from Models.DB_metadata import PASSWORD, ENDPOINT, DBNAME
-from Models import Users, Mapping, Products, validate_database
+from Models import Users, Mapping, Products, validate_database, citiesinfo
+
 
 def init_app():
 
@@ -112,7 +113,7 @@ def user_signup():
 def get_region():
     data = request.json or request.form
     city = data.get("city", None)
-    region = Mapping.get_region(city)
+    region = citiesinfo.get_region(city)
     return build_response(json={"region": region})
 
 
@@ -120,19 +121,19 @@ def get_region():
 def get_cities_in_the_same_region():
     data = request.json or request.form
     region = data.get("region", None)
-    cities = Mapping.get_cities_in_the_same_region(region)
+    cities = citiesinfo.get_cities_in_the_same_region(region)
     return build_response(json={"cities": [cities]})
 
 
 @app.route('/get_all_regions', methods=['GET'])
 def get_all_regions():
-    regions = Mapping.get_regions()
+    regions = citiesinfo.get_regions()
     return build_response(json={"regions": regions})
 
 
 @app.route('/get_all_cities', methods=['GET'])
 def get_all_cities():
-    cities = Mapping.get_cities()
+    cities = citiesinfo.get_cities()
     cities.sort()
     return build_response(json={"cities": cities})
 
@@ -194,7 +195,6 @@ def delete_product():
 # saves image locally and then should call "add_photo" in order to save its path in the DB
 def handle_request():
     files_ids = list(request.files)
-    print("\nNumber of Received Images : ", len(files_ids))
     image_num = 1
     for file_id in files_ids:
         print("\nSaving Image ", str(image_num), "/", len(files_ids))

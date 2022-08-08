@@ -42,7 +42,7 @@ class Products(Base):
             log.warning(message)
             raise IllegalProductAttributes(message)
         self.Name = name
-        self.Region = Mapping.get_region(city)
+        self.Region = citiesinfo.get_region(city)
         self.Category = category
         self.Date = datetime.today().strftime('%Y-%m-%d')
         self.Description = description
@@ -105,6 +105,7 @@ def add_photo(product_id, img_url):
         log.warning(message)
         raise IllegalImgUrl(message)
     product.Image = img_url
+    session.commit()
 
 
 def get_products_ordered_by_date():
@@ -141,7 +142,11 @@ def toJson_minimal(product):
 
 def get_all_products():
     # no need to specify a column
-    products = session.query(Products).all()
+    try:
+        products = session.query(Products).all()
+    except Exception as e:
+        session.rollback()
+        return
     res = []
     for product in products:
         res.append(toJson_minimal(product))

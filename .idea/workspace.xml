@@ -19,8 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="compressed json in &quot;get product by id&quot;">
-      <change afterPath="$PROJECT_DIR$/Models/citiesinfo.py" afterDir="false" />
+    <list default="true" id="323a769d-28e1-4758-95b5-30baf0ab531c" name="Default Changelist" comment="added info for cities in order to support gps functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FlaskApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlaskApp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/Products.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Products.py" afterDir="false" />
@@ -494,7 +493,13 @@
       <option name="presentableId" value="LOCAL‎00039" />
       <updated>1659877284013</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL‎00040" summary="added info for cities in order to support gps functionality">
+      <created>1659890894011</created>
+      <option name="number" value="LOCAL‎00040" />
+      <option name="presentableId" value="LOCAL‎00040" />
+      <updated>1659890894011</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -515,7 +520,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="implemented &quot;Mappings&quot; DB methods and tested them" />
     <MESSAGE value="implemented most of &quot;Products&quot; DB methods" />
     <MESSAGE value="refactoring and finished &quot;Products&quot; DB methods" />
     <MESSAGE value="implemented part of &quot;Users&quot; DB methods" />
@@ -540,37 +544,38 @@
     <MESSAGE value="fixed a bug in filter function" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="compressed json in &quot;get product by id&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="compressed json in &quot;get product by id&quot;" />
+    <MESSAGE value="added info for cities in order to support gps functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="added info for cities in order to support gps functionality" />
   </component>
   <component name="WindowStateProjectService">
     <state x="421" y="116" key="FileChooserDialogImpl" timestamp="1658777670935">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1658777670935" />
-    <state width="1259" height="277" key="GridCell.Tab.0.bottom" timestamp="1659890734641">
+    <state width="1259" height="205" key="GridCell.Tab.0.bottom" timestamp="1659975089330">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="1259" height="277" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1659890734641" />
     <state width="1899" height="301" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1659120537421" />
-    <state width="1259" height="313" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1659869119512" />
-    <state width="1259" height="277" key="GridCell.Tab.0.center" timestamp="1659890734641">
+    <state width="1259" height="205" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1659975089330" />
+    <state width="1259" height="205" key="GridCell.Tab.0.center" timestamp="1659975089330">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="1259" height="277" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1659890734641" />
     <state width="1899" height="301" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1659120537420" />
-    <state width="1259" height="313" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1659869119512" />
-    <state width="1259" height="277" key="GridCell.Tab.0.left" timestamp="1659890734641">
+    <state width="1259" height="205" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1659975089330" />
+    <state width="1259" height="205" key="GridCell.Tab.0.left" timestamp="1659975089330">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="1259" height="277" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1659890734641" />
     <state width="1899" height="301" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1659120537420" />
-    <state width="1259" height="313" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1659869119512" />
-    <state width="1259" height="277" key="GridCell.Tab.0.right" timestamp="1659890734641">
+    <state width="1259" height="205" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1659975089330" />
+    <state width="1259" height="205" key="GridCell.Tab.0.right" timestamp="1659975089330">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="1259" height="277" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1659890734641" />
     <state width="1899" height="301" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1659120537421" />
-    <state width="1259" height="313" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1659869119512" />
+    <state width="1259" height="205" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1659975089330" />
     <state width="1259" height="117" key="GridCell.Tab.1.bottom" timestamp="1659539476106">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -591,10 +596,10 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="142" y="6" key="SettingsEditor/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1659889665763" />
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1659877297790">
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1659890895946">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1659877297790" />
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1659890895946" />
     <state x="2270" y="141" key="Vcs.Push.Dialog.v2/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1659121094113" />
     <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1659722868059" />
     <state x="458" y="275" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1659011142756">
@@ -617,13 +622,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/FlaskApp.py</url>
-          <line>154</line>
+          <line>155</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/FlaskApp.py</url>
-          <line>201</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
