@@ -213,7 +213,7 @@ def get_all_products_ids():
     return [product.ID for product in tmp]
 
 
-def get_all_products_radius_serach(radius, lat, lng):
+def get_all_products_radius_search(radius, lat, lng):
     products = session.query(Products).all()
     cur_cords = (lat, lng)
     res = []

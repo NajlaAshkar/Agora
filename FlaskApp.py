@@ -339,7 +339,7 @@ def get_products_in_search_radius():
     radius = data.get("radius", None)
     lat = data.get("lat", None)
     lng = data.get("lng", None)
-    products = Products.get_all_products_radius_serach(radius, lat, lng)
+    products = Products.get_all_products_radius_search(radius, lat, lng)
     return build_response(json={"products": products})
 
 
