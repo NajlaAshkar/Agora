@@ -129,10 +129,10 @@ def toJson(product):
     with open(product.Image, "rb") as image:
         b64string = base64.b64encode(image.read()).decode('ASCII')
 
-    return {"name": product.Name, "category": product.Category, "description": product.Description,
+    return {"has_image": "yes", "name": product.Name, "category": product.Category, "description": product.Description,
             "rating": product.Rating, "city": product.City, "phone": product.PhoneNum,
             "image_url": b64string, "ID": product.ID, "region": product.Region,
-            "has_image": "yes"}
+            }
 
 
 def toJson_minimal(product):
@@ -145,7 +145,7 @@ def get_all_products():
     try:
         products = session.query(Products).all()
     except Exception as e:
-        session.rollback()
+        # session.rollback()
         return
     res = []
     for product in products:
