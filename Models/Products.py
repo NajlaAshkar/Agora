@@ -6,7 +6,7 @@ import psycopg2
 
 import geopy.distance
 
-from . import Mapping, citiesinfo
+from . import Mapping, citiesinfo, Users
 from datetime import datetime
 from .DB_metadata import Base, metadata, session
 
@@ -222,6 +222,15 @@ def get_all_products_radius_search(radius, lat, lng):
         cords = citiesinfo.get_cords_by_city(city)
         if geopy.distance.geodesic(cur_cords, cords).km <= radius:
             res.append(toJson_minimal(product))
+    return res
+
+
+def get_my_products(email):
+    phone = Users.get_user_by_email(email).PhoneNum
+    products = session.query(Products).filter(Products.PhoneNum == phone).all()
+    res = []
+    for product in products:
+        res.append(toJson_minimal(product))
     return res
 
 

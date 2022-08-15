@@ -343,6 +343,18 @@ def get_products_in_search_radius():
     return build_response(json={"products": products})
 
 
+@app.route('/get_my_products', methods=['POST'])
+def get_my_products():
+    data = request.json or request.form
+    email = data.get("email", None)
+    products = Products.get_my_products(email)
+    if len(products) > 0:
+        flag = 1
+    else:
+        flag = 0
+    return build_response(json={"products": products, "flag": flag})
+
+
 
 
 if __name__ == "__main__":
