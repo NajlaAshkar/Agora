@@ -128,6 +128,7 @@ def get_cities_in_the_same_region():
 @app.route('/get_all_regions', methods=['GET'])
 def get_all_regions():
     regions = citiesinfo.get_regions()
+    regions.sort()
     return build_response(json={"regions": regions})
 
 
@@ -293,6 +294,7 @@ def filter_products():
     filtered_products = intersection(intersection(intersection(intersection(cities_filtered, regions_filtered), img_filtered), categories_filtered),rating_filtered)
     print(filtered_products)
     res = []
+
     for i in filtered_products:
         res.append(Products.toJson_minimal(Products.get_product_by_id(i)))
     return build_response(json={"products": res})
@@ -340,7 +342,11 @@ def get_products_in_search_radius():
     lat = data.get("lat", None)
     lng = data.get("lng", None)
     products = Products.get_all_products_radius_search(radius, lat, lng)
-    return build_response(json={"products": products})
+    if len(products) == 0:
+        empty = 1
+    else:
+        empty = 0
+    return build_response(json={"products": products, "empty": empty})
 
 
 @app.route('/get_my_products', methods=['POST'])
